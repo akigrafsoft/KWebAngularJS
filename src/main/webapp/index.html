@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>AkiGrafSoft &#8211; Créateur de logiciels et services</title>
+
+<meta name="description"
+	content="AkiGrafSoft est un éditeur de logiciel et propose de créer des service à forte valeur ajoutée mis à disposition sur internet et accessible sur ordinateurs tablettes et smartphones" />
+<meta NAME="keywords"
+	CONTENT="AkiGrafSoft, in-memory, software, service, java, framework, UML, model, driven, modélisation, génération de code, code generation">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700" -->
+<!-- 	rel="stylesheet" /> -->
+
+<link rel="shortcut icon" href="./img/akigrafsoft_logo_box.ico">
+<link rel="apple-touch-icon" href="./img/akigrafsoft_logo_box.png">
+
+<!-- CSS files -->
+<link href="./bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="./css/akigrafstyle.css" rel="stylesheet">
+<link href="./css/animate-min.css" rel="stylesheet" />
+
+<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+
+<!-- The ng-app directive tells angular that the code below should be evaluated -->
+<body ng-app="akigrafsoft" ng-controller="MainController">
+
+	<div id="bodyContainer">
+
+		<header>
+			<div id="topbar">
+				<!-- 	Software making with Innovative model driven solutions : <span -->
+				<!-- 				title="Rapid Application Development">RAD</span> and <span -->
+				<!-- 				title="Model Driven Engineering">MDE</span> -->
+				<a ng-if="LANG=='en'" title="French" href ng-click="setLang('fr')"><img
+					src="./img/200px-Flag_of_France.svg.png" /></a>
+				<!-- 		Editeur et Créateur de logiciel -->
+				<a ng-if="LANG=='fr'" title="Anglais" href ng-click="setLang('en')"><img
+					src="./img/200px-Flag_of_the_United_Kingdom.svg.png" /></a>
+			</div>
+
+			<!-- 	 performants et à forte -->
+			<!-- 		valeur métier -->
+
+			<nav ng-click="$event.defaultPrevented()">
+				<a id="logo" href="#/home" ng-click="startSlide()"
+					title="AkiGrafSoft Home"><img src="./img/akigrafsoft_logo.png" /></a>
+				<ul>
+					<!-- When a link in the menu is clicked, we set the menu variable -->
+					<li><a href="#/home"> <span ng-if="LANG=='en'">Home</span><span
+							ng-if="LANG=='fr'">Accueil</span></a></li>
+					<li><a href="#/technology"> <span ng-if="LANG=='en'">Technology</span><span
+							ng-if="LANG=='fr'">Technologie</span></a> <!-- 				<ul> --> <!-- 					<li><a href="#/home" ng-click="setSlide(1)" -->
+						<!-- 						title="Model editor">KOneEdit™</a></li> --> <!-- 					<li><a href="#/home" ng-click="setSlide(2)">KNetThreadsPlatform™</a></li> -->
+						<!-- 					<li><a href="#/home" ng-click="setSlide(3)">KWebPlatform™</a></li> -->
+						<!-- 				</ul> --></li>
+					<li><a href="#/products"><span ng-if="LANG=='en'">Products</span><span
+							ng-if="LANG=='fr'">Produits</span></a></li>
+					<li><a href="#/contact">Contact</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<div class="content container" ng-view=""></div>
+
+		<footer>
+			<small>
+				<div id="footer" class="container">
+					<div class="row">
+						<div class="col-md-1"></div>
+						<div class="col-md-3">
+							<h4>
+								<span ng-if="LANG=='en'">Technology</span><span
+									ng-if="LANG=='fr'">Technologies</span>
+							</h4>
+							<ul>
+								<li><a href="#/technology">KOneEdit™</a></li>
+								<li><a href="#/technology">KNetThreadsPlatform™</a></li>
+								<li><a href="#/technology">Connector™</a></li>
+								<li><a href="#/technology">KWebPlatform™</a></li>
+							</ul>
+						</div>
+						<div class="col-md-3">
+							<h4>
+								<span ng-if="LANG=='en'">Products</span><span ng-if="LANG=='fr'">Produits</span>
+							</h4>
+							<ul>
+								<li><a href="#/products">Genetik-SDK™ Licence</a></li>
+								<li><a href="#/products">Genetik-Web™ SaaS</a></li>
+							</ul>
+						</div>
+						<div class="col-md-3">
+							<h4>AkiGrafSoft</h4>
+							<ul>
+								<li><a href="#/company"><span ng-if="LANG=='en'">Company</span><span
+										ng-if="LANG=='fr'">L'entreprise</span></a></li>
+								<li><a href="#/legal"><span ng-if="LANG=='en'">Legal
+											information</span><span ng-if="LANG=='fr'">Mentions légales</span></a></li>
+							</ul>
+						</div>
+						<!-- 					<div class="col-md-4"> -->
+						<!-- 						<h4> -->
+						<!-- 							<a href="#/contact"> Contact</a> -->
+						<!-- 						</h4> -->
+						<!-- 												<ul> -->
+						<!-- 													<li><a href="#/contact"> Contact</a></li> -->
+						<!-- 													<li><a href="mailto:akigrafsoft@gmail.com"> -->
+						<!-- 															akigrafsoft@gmail.com</a></li> -->
+						<!-- 												</ul> -->
+						<!-- 					</div> -->
+					</div>
+				</div>
+				<p id="copyright">
+					<img src="./img/akigrafsoft_logo_box.ico">&nbsp;AkiGrafSoft ©
+					2014-2015
+				</p>
+			</small>
+		</footer>
+
+	</div>
+
+	<!-- Placed at the end of the document so the pages load faster -->
+	<!-- 	<script -->
+	<!-- 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
+	<script src="./js/jquery-2.1.1.min.js"></script>
+	<script src="./bootstrap/js/bootstrap.min.js"></script>
+
+	<script src="./angularjs/angular.min.js"></script>
+	<script src="./angularjs/angular-cookies.min.js"></script>
+	<script src="./angularjs/angular-resource.min.js"></script>
+	<script src="./angularjs/angular-route.min.js"></script>
+
+	<script type='text/javascript'>
+		var HTTP_ROOT = '';
+	</script>
+	<script src="./js/akigrafsoft_fmk-min.js"></script>
+
+	<script src="./js/akigrafsoft.com-min.js"></script>
+</body>
+</html>

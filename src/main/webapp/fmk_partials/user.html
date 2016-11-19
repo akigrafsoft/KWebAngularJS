@@ -1,0 +1,12 @@
+<div class="container">
+	<div class="jumbotron">
+		<!-- 	role.name for role in roles -->
+		<h1>{{user.username}} {{user.lastName}}</h1>
+		{{user.roles}} <select ng-options="role for role in roles"
+			ng-model="selectedRole"></select>
+		<!-- 		 <select data-ng-options="role.name for role in roles" -->
+		<!-- 			data-ng-model="selectedRole"></select> -->
+		<button type="button" class="btn btn-info" ng-click="addRole()">Add</button>
+		<button type="button" class="btn btn-info" ng-click="removeRole()">Remove</button>
+	</div>
+</div>

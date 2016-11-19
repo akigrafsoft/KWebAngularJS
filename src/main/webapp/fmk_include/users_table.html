@@ -1,0 +1,27 @@
+<table class="table table-condensed table-striped animated fadeIn">
+	<thead>
+		<tr>
+			<th><a class="label label-default" title href
+				ng-click="sortBy('username')">Username&nbsp;<span
+					ng-if="orderBy==='username'"><i
+						ng-show="orderReverseHash['username']"
+						class="glyphicon glyphicon-chevron-up"></i><i
+						ng-show="!orderReverseHash['username']"
+						class="glyphicon glyphicon-chevron-down"></i></span></a></th>
+			<th ng-repeat="data in listData"><a href
+				class="label label-default" ng-click="sortBy(data.attr)"
+				title="{{data.header}}">{{data.header}}&nbsp;<span
+					ng-if="orderBy===data.attr"><i
+						ng-show="orderReverseHash[data.attr]"
+						class="glyphicon glyphicon-chevron-up"></i><i
+						ng-show="!orderReverseHash[data.attr]"
+						class="glyphicon glyphicon-chevron-down"></i></span></a></th>
+		</tr>
+	</thead>
+	<tr ng-repeat="item in items">
+		<td><a role="button" class="btn btn-default" title
+			ng-click="itemClick(item)">{{item.username}} </a></td>
+		<td ng-repeat="data in listData"><kwp-field-data title
+				item="item" data="data" /></td>
+	</tr>
+</table>

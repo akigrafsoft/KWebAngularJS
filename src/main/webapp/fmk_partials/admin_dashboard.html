@@ -1,0 +1,21 @@
+<div class="container">
+	<div class="jumbotron">
+		<div ng-if="configLoaded" ng-controller="AdminController">
+			<div class="inprogress">
+				<img ng-show="processing" src="fmk_img/processing.gif" />
+			</div>
+			<div id="users" ng-if="processing==false" class="administration box">
+				<p class="title">Users</p>
+				<div ng-include="'fmk_include/generic_list.html'"
+					ng-init="listId='users';list=users;listData=usersListData;listSize='10';listLayout='list';allowRemove=true;orderBy='username';searchBy='username'"></div>
+			</div>
+			<div id="sessions" ng-if="processing==false"
+				class="administration box">
+				<p class="title">Sessions</p>
+				<div ng-include="'fmk_include/generic_list.html'"
+					ng-init="listId='sessions';list=sessions;listData=sessionsListData;listSize='10';listLayout='list';allowRemove=true;orderBy='user.username';searchBy='user.username'"></div>
+			</div>
+			<br>
+		</div>
+	</div>
+</div>

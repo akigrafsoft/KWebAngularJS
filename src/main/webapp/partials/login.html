@@ -1,0 +1,58 @@
+<div class="container">
+	<div class="jumbotron animated bounceInRight"
+		ng-controller="LoginController">
+		<h1>
+			<span ng-if="LANG=='en'">Login</span> <span ng-if="LANG=='fr'">Connexion</span>
+		</h1>
+		<p>
+		<form ng-app="geneticsApp" name="loginForm"
+			class="form-inline enabled">
+			<!-- 			<form class="form-inline"> -->
+			<div class="form-group">
+				<!-- 				<label class="sr-only" for="login-username">Adresse e-mail</label> -->
+				<div class="input-group">
+					<span class="input-group-addon" id="username-addon"><span
+						class="glyphicon glyphicon-user"></span></span> <input ng-if="LANG=='en'"
+						type="text" class="form-control" id="login-username"
+						name="username" placeholder="username/e-mail"
+						ng-model="credentials.username" value="" kwp-auto-fill> <input
+						ng-if="LANG=='fr'" type="text" class="form-control"
+						id="login-username" name="username"
+						placeholder="nom d'utilisateur/e-mail"
+						ng-model="credentials.username" value="" kwp-auto-fill
+						aria-describedby="username-addon">
+				</div>
+			</div>
+			<div class="form-group">
+				<!-- 				<label class="sr-only" for="login-password">Password</label> -->
+				<div class="input-group">
+					<span class="input-group-addon" id="password-addon"><span
+						class="glyphicon glyphicon-lock"></span></span> <input type="password"
+						class="form-control" id="login-password" name="password"
+						placeholder="Password" ng-model="credentials.password"
+						aria-describedby="password-addon">
+				</div>
+			</div>
+
+			<a id="forgottenPassword" href
+				ng-show="loginForm.error&&loginForm.username.$valid"
+				kwp-confirm-condition="true"
+				kwp-confirm-message="{{ LANG=='en' ? 'A new password will be sent over your e-mail, continue ?' : 'Un mot de passe temporaire va vous etre envoyé sur votre e-mail, êtes vous sûr de vouloir continuer?'}}"
+				kwp-confirm-click="forgottenPassword()"><span ng-if="LANG=='en'">forgotten</span>
+				<span ng-if="LANG=='fr'">oublié</span> ?</a>
+
+			<div class="form-group">
+				<!-- Button -->
+				<a id="btn-login" ng-if="!processing" href class="btn btn-success"
+					ng-click="login(credentials)"><span ng-if="LANG=='en'">Login</span>
+					<span ng-if="LANG=='fr'">Se connecter</span> &nbsp; <img
+					ng-show="processing" src="img/processing.gif" /> </a> <small
+					class="alert alert-warning" ng-show="loginForm.error.errorReason">{{loginForm.error.errorReason}}</small>
+
+				<a ng-if="loginForm.error.errorCode==31" href="#/activation">Activation</a>
+
+			</div>
+		</form>
+
+	</div>
+</div>

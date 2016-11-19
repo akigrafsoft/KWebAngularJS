@@ -1,0 +1,49 @@
+<div ng-controller="ListController">
+
+	<div class="searchbar">
+		<input ng-show="searchBy" type="text" ng-model="searchString"
+			ng-change="updateFilter()" placeholder="Rechercher par nom..." />
+		<div class="pagination previous">
+			<a href ng-class="{enabled: currentPage != 0}" ng-click="prevPage()">«
+				Prev</a>
+		</div>
+
+		<a href class="icon grid-icon"
+			ng-class="{active: listLayout == 'grid'}"
+			ng-click="listLayout = 'grid'"></a><a href class="icon list-icon"
+			ng-class="{active: listLayout == 'list'}"
+			ng-click="listLayout = 'list'"></a>
+
+		<div class="pagination next">
+			<a href ng-class="{enabled: currentPage < pagedItems.length - 1}"
+				ng-click="nextPage()">Next »</a>
+		</div>
+	</div>
+
+	<ul ng-show="listLayout == 'grid'" class="grid">
+		<li ng-repeat="item in pagedItems[currentPage]"><wrapper
+				item="item" data="listData[0]" /></li>
+	</ul>
+
+	<div ng-if="listLayout == 'list'" class="list">
+		<table>
+			<thead>
+				<tr>
+					<th ng-if="allowRemove" width="21"></th>
+					<th ng-repeat="data in listData"><a href
+						ng-click="sortBy(data.attr)">{{data.header}}</a></th>
+				</tr>
+			</thead>
+			<tr ng-repeat="item in pagedItems[currentPage]">
+				<td ng-if="allowRemove"><a href><img src="fmk_img/delete.png"
+						kwp-confirm-condition="true" kwp-confirm-message="Supprimer ?"
+						kwp-confirm-click="remove(item)" height="21" width="21" /></a></td>
+				<td ng-repeat="data in listData"><wrapper item="item"
+						data="data" /></td>
+			</tr>
+		</table>
+	</div>
+	<div class="pagination pagenumber">Page
+		{{currentPage+1}}/{{pagedItems.length}}</div>
+	<div class="clear"></div>
+</div>

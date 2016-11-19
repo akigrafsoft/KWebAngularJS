@@ -1,0 +1,37 @@
+<div ng-controller="MessagesController">
+	<div class="panel panel-default">
+		<!-- Default panel contents -->
+		<div class="panel-heading" data-toggle="collapse"
+			data-parent="#{{parentId}}" data-target="#{{listId}}">
+			{{listName}}&nbsp;&nbsp;<span class="badge">{{allItems.length}}</span>
+		</div>
+
+		<div id="{{listId}}" class="panel-collapse collapse" ng-class="opened">
+			<!-- Table -->
+			<table class="table table-condensed">
+				<thead>
+					<tr>
+						<th><a title href ng-click="sortBy('level')">Level</a></th>
+						<th>Message</th>
+					</tr>
+				</thead>
+				<!-- 				  | orderBy : level -->
+				<tr ng-repeat="item in pagedItems[currentPage]"
+					ng-class="{INFO:'info', WARN:'warning', ERROR:'danger', '':''}[item.level]">
+					<td><span class="label"
+						ng-class="{INFO:'label-info', WARN:'label-warning', ERROR:'label-danger', '':''}[item.level]">{{item.level}}</span></td>
+					<td><small>{{item.msg}}</small></td>
+				</tr>
+			</table>
+
+			<ul class="pager">
+				<li class="previous" ng-class="{disabled: currentPage == 0}"><a
+					href ng-click="prevPage()">&larr; Précedent</a></li>
+				<span>Page {{currentPage+1}}/{{pagedItems.length}}</span>
+				<li class="next"
+					ng-class="{disabled: currentPage == pagedItems.length - 1}"><a
+					href ng-click="nextPage()">Suivant &rarr;</a></li>
+			</ul>
+		</div>
+	</div>
+</div>

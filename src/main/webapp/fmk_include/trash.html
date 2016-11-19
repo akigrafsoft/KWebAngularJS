@@ -1,0 +1,52 @@
+
+<div class="panel-heading" data-toggle="collapse"
+	data-parent="#{{parentId}}" data-target="#{{listId}}">
+	<div class="panel-title">
+		{{listName}}&nbsp;&nbsp;<span class="badge">{{allItems.length}}</span>
+	</div>
+	<!-- 			<div class="btn-group"> -->
+	<!-- 				<span>{{listName}} <span class="badge">{{allItems.length}}</span></span> -->
+	<!-- 				<span class="navbar-brand glyphicon glyphicon-wrench"></span> -->
+	<!-- 				<button type="button" class="btn btn-default icon info-icon" -->
+	<!-- 					ng-click="updateFilter('INFO')"></button> -->
+	<!-- 				<button type="button" class="btn btn-default icon warning-icon" -->
+	<!-- 					ng-click="updateFilter('WARN')"></button> -->
+	<!-- 				<button type="button" class="btn btn-default icon error-icon" -->
+	<!-- 					ng-click="updateFilter('ERROR')"></button> -->
+	<!-- 			</div> -->
+</div>
+<!-- 	{{listId}} -->
+<div id="{{listId}}" class="panel-collapse collapse" ng-class="opened">
+	<div class="panel-body">
+		<!-- 			<ul class="list-group"> -->
+		<!-- 				<li ng-repeat="item in pagedItems[currentPage]" -->
+		<!-- 					class="list-group-item" -->
+		<!-- 					ng-class="{INFO:'list-group-item-info', WARN:'list-group-item-warning', ERROR:'list-group-item-danger', '':''}[item.level]"><small>{{item.msg}}</small></li> -->
+		<!-- 			</ul> -->
+
+		<table class="table table-condensed">
+			<thead>
+				<tr>
+					<th><a title href ng-click="sortBy('level')">Level</a></th>
+					<th>Message</th>
+				</tr>
+			</thead>
+			<tr ng-repeat="item in pagedItems[currentPage]"
+				ng-class="{INFO:'info', WARN:'warning', ERROR:'danger', '':''}[item.level]">
+				<td><span class="label"
+					ng-class="{INFO:'label-info', WARN:'label-warning', ERROR:'label-danger', '':''}[item.level]">{{item.level}}</span></td>
+				<td><small>{{item.msg}}</small></td>
+			</tr>
+		</table>
+
+
+		<ul class="pager">
+			<li class="previous" ng-class="{disabled: currentPage == 0}"><a
+				href ng-click="prevPage()">&larr; Précedent</a></li>
+			<span>Page {{currentPage+1}}/{{pagedItems.length}}</span>
+			<li class="next"
+				ng-class="{disabled: currentPage == pagedItems.length - 1}"><a
+				href ng-click="nextPage()">Suivant &rarr;</a></li>
+		</ul>
+	</div>
+</div>

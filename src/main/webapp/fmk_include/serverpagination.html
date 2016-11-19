@@ -1,0 +1,109 @@
+<div id="{{listId}}" class="panel panel-default" kwp-droppable
+	kwp-on-drop="allowDrop&&onAdd(object)">
+	<div class="panel-heading" data-toggle="collapse"
+		data-parent="#{{parentId}}" data-target="#{{listId}}_body">
+		<h2 class="panel-title">
+			{{listTitle}} <span class="badge"
+				title="{{itemsFullSize ?
+				itemsFullSize : 0}} {{LANG=='fr' ? 'items au total' : 'items'}}">{{itemsFullSize
+				? itemsFullSize : 0}}</span><span ng-show="listTitleAdmin===true"
+				style="font-size: 50%;" class="label label-warning">ADMIN</span>
+		</h2>
+	</div>
+	<div id="{{listId}}_body" class="panel-collapse collapse"
+		ng-class="opened">
+		<div class="panel-body">
+
+			<div class="row">
+				<div class="col-md-9 col-xs-7" class="btn-group" role="group"
+					aria-label="...">
+					<button ng-show="allowLayoutToggle" type="button"
+						class="btn btn-default glyphicon glyphicon-th"
+						ng-click="listLayout = 'grid'" ng-disabled="listLayout==='grid'"
+						title="{{LANG=='fr' ? 'vue grille' : 'grid view'}}"></button>
+					<button ng-show="allowLayoutToggle" type="button"
+						class="btn btn-default glyphicon glyphicon-th-list"
+						ng-click="listLayout = 'list'" ng-disabled="listLayout==='list'"
+						title="{{LANG=='fr' ? 'vue table' : 'table view'}}"></button>
+
+					<button ng-show="listSearchDirective" type="button"
+						class="btn btn-default glyphicon glyphicon-search"
+						ng-click="displayAction = displayAction==='search' ? '' : 'search'"
+						title="{{LANG=='fr' ? 'recherche' : 'search'}}"></button>
+					<button ng-show="listAddEnabled===true" type="button"
+						class="btn btn-default glyphicon glyphicon-plus"
+						ng-click="displayAction = displayAction==='add' ? '' : 'add'"
+						title="{{LANG=='fr' ? 'nouveau' : 'new'}}"></button>
+					<!-- 					<select ng-model="listSize" ng-options="option as option for option in [10, 20, 30]"></select> -->
+				</div>
+				<!-- 				<div class="col-md-1"></div> -->
+				<div ng-if="allowRemove" ng-show="itemDragging"
+					class="col-md-2 col-xs-4 btn btn-warning glyphicon glyphicon-trash"
+					kwp-droppable kwp-on-drop="onRemove(object)"></div>
+			</div>
+
+			<!-- 			Use ng-show instead of ng-if here otherwise directive searchstring is reinit when closed/open while list was not  -->
+			<div ng-show="listSearchDirective&&(displayAction==='search')"
+				class="well" style="margin-top: 5px">
+				<!-- 				the ng-if is important there, because it forces new listSearchDirective to be re-instantiated -->
+				<div ng-if="listSearchDirective&&(displayAction==='search')">
+					<!-- 				attributes='search="search"' -->
+					<kwp-custom-directive type="{{listSearchDirective}}"></kwp-custom-directive>
+				</div>
+			</div>
+
+			<div ng-show="listAddDirective&&(displayAction==='add')" class="well"
+				style="margin-top: 5px">
+				<!-- 				the ng-if is important there, because it forces new listAddDirective to be re-instantiated -->
+				<div ng-if="listAddDirective&&(displayAction==='add')">
+					<kwp-custom-directive type="{{listAddDirective}}"></kwp-custom-directive>
+				</div>
+			</div>
+
+			<div ng-if="errorReason" class="alert alert-danger">
+				<a href class="close" data-dismiss="alert" aria-label="close">&times;</a>
+				<strong>Error</strong> {{errorReason}}
+			</div>
+
+			<div ng-if="allowDrop&&((!itemsFullSize)||(itemsFullSize==0))"
+				class="alert alert-info" role="alert" style="margin-top: 5px">
+				<small><span ng-if="LANG=='en'">Drag-drop items here</span>
+					<span ng-if="LANG=='fr'">Glisser-Déposer un élément ou une
+						selection ici</span></small>
+			</div>
+
+			<div class="paginationbody">
+				<div ng-if="listLayout == 'grid'">
+					<kwp-custom-directive type="{{itemsGridDirective}}"></kwp-custom-directive>
+				</div>
+
+				<div ng-if="listLayout == 'list'">
+					<kwp-custom-directive type="{{itemsTableDirective}}"></kwp-custom-directive>
+				</div>
+			</div>
+
+			<ul class="pager" title>
+				<li class="previous" ng-class="{disabled: currentPage == 0}"><a
+					href ng-click="prevPage()">&larr; <span ng-if="LANG=='en'">Previous</span><span
+						ng-if="LANG=='fr'">Précédent</span></a></li>
+				<span><span ng-show="nbPages>0">Page
+						{{currentPage+1}}/{{nbPages}} <span ng-if="LANG=='en'">of</span><span
+						ng-if="LANG=='fr'">de</span>
+				</span>
+					<div class="badge grabbing animated" kwp-draggable
+						kwp-draggable-item="{{ {'listId':listId, 'filtered':true} | json }}"
+						kwp-parent-id="{{listId}}"
+						kwp-toggle-dragging="setItemDragging(dragging)"
+						kwp-animate-on-change='itemsFilteredSize'
+						kwp-animate-on-change-class='bounce'
+						title="{{itemsFilteredSize ?
+					itemsFilteredSize : 0}} {{LANG=='fr' ? 'items selectionnés' : 'selected items'}}">{{itemsFilteredSize
+						? itemsFilteredSize : 0}}</div> items </span>
+				<li class="next" ng-class="{disabled: currentPage >= (nbPages-1)}"><a
+					href ng-click="nextPage()"><span ng-if="LANG=='en'">Next</span><span
+						ng-if="LANG=='fr'">Suivant</span> &rarr;</a></li>
+				<!-- 					animate-on-change='itemsFilteredSize' -->
+			</ul>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,33 @@
+<div id="activation" class="container">
+	<div class="jumbotron">
+		<h1>Activation</h1>
+		<form class="form-horizontal" name="activationForm"
+			ng-submit="activationForm.$valid && activate(typed_key)"
+			style="text-align: left">
+
+			<div class="form-group">
+				<label class="col-md-5 control-label" for="key">Entrez la
+					clef d'activation reçue par email</label>
+				<div class="col-md-5">
+					<input class="form-control" required type="text" id="key"
+						name="key" ng-model="typed_key">
+				</div>
+
+				<div class="col-md-2 alert alert-warning"
+					ng-show="activationForm.error.errorReason">
+					{{activationForm.error.errorReason}}</i>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<div class="col-md-8"></div>
+				<button class="btn btn-primary btn-lg" ng-if="!processing"
+					ng-disabled="processing || !activationForm.key.$valid"
+					type="submit">Activer le compte</button>
+				<div class="inprogress">
+					<img ng-show="processing" src="fmk_img/processing.gif" />
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

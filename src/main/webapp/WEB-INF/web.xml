@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="WebApp_ID" version="3.0">
+	<display-name>Akigraf</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+
+	<!-- <security-constraint> -->
+	<!-- <web-resource-collection> -->
+	<!-- <web-resource-name>Genetics</web-resource-name> -->
+	<!-- <url-pattern>/secure/*</url-pattern> -->
+	<!-- </web-resource-collection> -->
+	<!-- <user-data-constraint> -->
+	<!-- <transport-guarantee>CONFIDENTIAL</transport-guarantee> -->
+	<!-- </user-data-constraint> -->
+	<!-- </security-constraint> -->
+
+	<listener>
+		<listener-class>com.akigrafsoft.kwebplatform.Initialize</listener-class>
+	</listener>
+
+	<servlet>
+		<servlet-name>default</servlet-name>
+		<servlet-class>org.apache.catalina.servlets.DefaultServlet</servlet-class>
+		<init-param>
+			<param-name>debug</param-name>
+			<param-value>0</param-value>
+		</init-param>
+		<init-param>
+			<param-name>listings</param-name>
+			<param-value>false</param-value>
+		</init-param>
+		<init-param>
+			<param-name>readonly</param-name>
+			<param-value>false</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<servlet>
+		<servlet-name>ContactMessage</servlet-name>
+		<servlet-class>com.akigrafsoft.kwebplatform.servlets.ContactMessage</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ContactMessage</servlet-name>
+		<url-pattern>/contactmessage</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Auth</servlet-name>
+		<servlet-class>com.akigrafsoft.kwebplatform.servlets.Authentication</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Auth</servlet-name>
+		<url-pattern>/auth/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Activation</servlet-name>
+		<servlet-class>com.akigrafsoft.kwebplatform.servlets.Activation</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Activation</servlet-name>
+		<url-pattern>/activation/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>License</servlet-name>
+		<servlet-class>com.akigrafsoft.kwebplatform.servlets.License</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>License</servlet-name>
+		<url-pattern>/license/*</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>Sessions</servlet-name>
+		<servlet-class>com.akigrafsoft.kwebplatform.servlets.Sessions</servlet-class>
+		<!-- <init-param> -->
+		<!-- <param-name>readonly</param-name> -->
+		<!-- <param-value>false</param-value> -->
+		<!-- </init-param> -->
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Sessions</servlet-name>
+		<url-pattern>/sessions</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>UploadDownload</servlet-name>
+		<servlet-class>com.akigrafsoft.kwebplatform.servlets.UploadDownload</servlet-class>
+		<!-- default ContentType is application/octet-stream -->
+		<!-- <init-param> -->
+		<!-- <param-name>ContentType</param-name> -->
+		<!-- <param-value>application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</param-value> -->
+		<!-- </init-param> -->
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UploadDownload</servlet-name>
+		<url-pattern>/updwnld</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>MongoDBGridFSServlet01</servlet-name>
+		<servlet-class>com.akigrafsoft.kwebplatform.servlets.MongoDBGridFSServlet</servlet-class>
+		<init-param>
+			<param-name>host</param-name>
+			<param-value>localhost</param-value>
+		</init-param>
+		<init-param>
+			<param-name>port</param-name>
+			<param-value>27017</param-value>
+		</init-param>
+		<init-param>
+			<param-name>dbname</param-name>
+			<param-value>mydb</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MongoDBGridFSServlet01</servlet-name>
+		<url-pattern>/mongodbgridfs/*</url-pattern>
+	</servlet-mapping>
+
+	<!-- seems useless -->
+	<!-- <mime-mapping> -->
+	<!-- <extension>xls</extension> -->
+	<!-- <mime-type>application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</mime-type> -->
+	<!-- </mime-mapping> -->
+
+</web-app>

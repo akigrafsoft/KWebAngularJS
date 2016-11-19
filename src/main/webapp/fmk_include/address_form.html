@@ -1,0 +1,60 @@
+<form class="form-horizontal" name="setAddressForm"
+	ng-submit="setAddressForm.$valid && setAddress(address)"
+	ng-controller="UserAddressController">
+	<!-- 	ng-class="{'enabled': editing}" -->
+
+	<p class="title">
+		<span ng-if="LANG=='en'">Address</span> <span ng-if="LANG=='fr'">Adresse</span>
+	</p>
+
+	<a id="edit" title="Editer" class="icon" ng-click="editing=!editing" /><a
+		ng-show="editing||processing" id="save" title="Sauvergarder"
+		class="icon" href ng-click="editing=false;setAddress(address)"><img
+		id="processing" ng-show="processing" src="fmk_img/processing.gif" /></a>
+
+	<div class="form-group">
+		<label for="addressLine1" class="col-md-4 control-label">Ligne
+			adresse 1</label>
+		<div class="col-md-8">
+			<input name="addressLine1" type="text" id="addressLine1"
+				ng-model="address.addressLine1" ng-disabled="!editing">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="addressLine2" class="col-md-4 control-label">Ligne
+			adresse 2</label>
+		<div class="col-md-8">
+			<input name="addressLine2" type="text" id="addressLine2"
+				ng-model="address.addressLine2" ng-disabled="!editing">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="postalCode" class="col-md-4 control-label">Code
+			postal</label>
+		<div class="col-md-8">
+			<input name="postalCode" type="text" id="postalCode"
+				ng-model="address.postalCode" ng-disabled="!editing">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="town" class="col-md-4 control-label">Ville</label>
+		<div class="col-md-8">
+			<input name="town" type="text" id="town" ng-model="address.town"
+				ng-disabled="!editing">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="province" class="col-md-4 control-label">Région</label>
+		<div class="col-md-8">
+			<input name="province" type="text" id="province"
+				ng-model="address.province" ng-disabled="!editing">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="state" class="col-md-4 control-label">Pays</label>
+		<div class="col-md-8">
+			<input name="state" type="text" id="state" ng-model="address.state"
+				ng-disabled="!editing">
+		</div>
+	</div>
+</form>

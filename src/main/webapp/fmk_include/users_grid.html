@@ -1,0 +1,4 @@
+<div class="user-grid-element btn btn-default" ng-repeat="item in items"
+	kwp-draggable kwp-draggable-item="{{item}}" kwp-parent-id="{{listId}}"
+	kwp-toggle-dragging="setItemDragging(dragging)"
+	ng-click="itemClick(item)">{{item.username}}</div>

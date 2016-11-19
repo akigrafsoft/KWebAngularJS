@@ -1,0 +1,113 @@
+<div class="container">
+	<div class="jumbotron animated bounceInRight"
+		ng-controller="RegisterController">
+		<h1>
+			<span ng-if="LANG=='fr'">Création de compte</span> <span
+				ng-if="LANG=='en'">Registration</span>
+		</h1>
+
+		<form class="form-horizontal" name="registerForm"
+			ng-submit="registerForm.$valid && register(registrationInfo)"
+			style="text-align: left">
+
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="username"><span
+					ng-if="LANG=='fr'">Nom d'utilisateur</span> <span
+					ng-if="LANG=='en'">Username</span></label>
+				<div class="col-md-5">
+					<input required type="text" pattern="[a-zA-Z0-9]+"
+						class="form-control" id="username" name="username"
+						aria-describedby="usernameStatus"
+						placeholder="{{ LANG=='en' ? 'lowercase username' : 'entrez votre pseudo'}}"
+						ng-model="registrationInfo.username" kwp-user-exists>
+				</div>
+				<small
+					class="col-md-3 alert alert-warning glyphicon glyphicon-warning-sign"
+					ng-show="registerForm.username.$error.user">&nbsp;<span
+					ng-if="LANG=='fr'">déjà utilisé</span> <span ng-if="LANG=='en'">already
+						in use</span></small>
+			</div>
+
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="email"><span
+					ng-if="LANG=='fr'">E-Mail</span> <span ng-if="LANG=='en'">E-mail</span></label>
+				<div class="col-md-5">
+					<input required type="email" class="form-control" id="email"
+						name="email" aria-describedby="emailStatus"
+						placeholder="{{ LANG=='en' ? 'valid e-mail' : 'entrez votre e-mail valide'}}"
+						ng-model="registrationInfo.email">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="firstName"><span
+					ng-if="LANG=='fr'">Prénom</span> <span ng-if="LANG=='en'">First
+						Name</span></label>
+				<div class="col-md-5">
+					<input class="form-control" required type="text" id="firstName"
+						name="firstName"
+						placeholder="{{ LANG=='en' ? 'Firstname' : 'Prénom'}}"
+						ng-model="registrationInfo.firstName">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="lastName"><span
+					ng-if="LANG=='fr'">Nom</span> <span ng-if="LANG=='en'">Last
+						Name</span></label>
+				<div class="col-md-5">
+					<input class="form-control" required type="text" id="lastName"
+						name="lastName" placeholder="{{ LANG=='en' ? 'Lastname' : 'Nom'}}"
+						ng-model="registrationInfo.lastName" />
+				</div>
+			</div>
+
+			<!-- to prevent browser pre-fill password and the text before as login -->
+			<input style="display: none" type="text" /> <input
+				style="display: none" type="password" />
+			<!-- to prevent browser pre-fill password and the text before as login -->
+
+			<div class="form-group">
+				<label for="pw1" class="col-md-4 control-label"> <span
+					ng-if="LANG=='fr'">Mot de passe<small>(7 car. min)</small></span> <span
+					ng-if="LANG=='en'">Password<small>(min 7 car)</small></span>
+				</label>
+				<div class="col-md-5">
+					<input class="form-control" name="pw1" required type="password"
+						id="pw1"
+						placeholder="{{ LANG=='en' ? 'create password' : 'créez votre mot de passe'}}"
+						ng-model="registrationInfo.password" ng-minlength="7">
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="pw2" class="col-md-4 control-label"> <span
+					ng-if="LANG=='fr'">Confirmation mot de passe</span> <span
+					ng-if="LANG=='en'">Confirm password</span>
+				</label>
+				<div class="col-md-5">
+					<input class="form-control" name="pw2" type="password" id="pw2"
+						placeholder="{{ LANG=='en' ? 'confirm password' : 'confirmez votre mot de passe'}}"
+						ng-model="registrationInfo.password2" kwp-pw-check="pw1">
+				</div>
+				<small class="col-md-3 alert alert-warning"
+					ng-show="registerForm.pw2.$error.pwdMatch == true"> <span
+					ng-if="LANG=='fr'">mots de passe différents</span> <span
+					ng-if="LANG=='en'">different passwords</span>
+				</small>
+			</div>
+
+			<div class="form-group">
+				<div class="col-md-8"></div>
+				<button class="btn btn-primary btn-lg" ng-if="!processing"
+					ng-disabled="processing || !registerForm.username.$valid || !registerForm.firstName.$valid || !registerForm.lastName.$valid || !registerForm.pw1.$valid || !registerForm.pw2.$valid"
+					type="submit">
+					<span ng-if="LANG=='fr'">Créer le compte</span> <span
+						ng-if="LANG=='en'">Register</span>
+				</button>
+				<div class="inprogress">
+					<img ng-show="processing" src="fmk_img/processing.gif" />
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

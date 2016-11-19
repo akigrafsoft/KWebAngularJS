@@ -1,0 +1,413 @@
+
+
+<div class="content">
+
+	<div id="modeldriven" class="article box">
+		<p id="title" ng-if="LANG=='en'">Model Driven Engineering</p>
+		<p id="title" ng-if="LANG=='fr'">Ingénierie dirigée par les
+			modèles</p>
+		<div id="text">
+			Le développement d'application piloté par les modèles est un concept
+			qui vise à se focaliser sur la modélisation de ce que doit faire
+			l'application et de s'appuyer sur une génération de code automatique
+			à partir de cette modélisation. <br /> <b>KOneEdit™</b> est un outil
+			qui permet de modéliser tout ce que vous imaginez.<br />Extensible
+			par méta-modélisation pour chaque modèle, il offre une infinité de
+			possiblité de représenter les données et le comportement d'une
+			application.<br />
+			<!-- 				<a -->
+			<!-- 					href="http://fr.wikipedia.org/wiki/Ing%C3%A9nierie_dirig%C3%A9e_par_les_mod%C3%A8les" -->
+			<!-- 					target="_blank">En savoir plus</a> -->
+			<!-- 				 <b>KOneEdit™</b> est disponible sous -->
+			<!-- 				Unix/Linux/Windows/Mac -->
+		</div>
+	</div>
+
+	<div id="rad" class="article box">
+		<p id="title" ng-if="LANG=='en'">Rapid Application Development</p>
+		<p id="title" ng-if="LANG=='fr'">Développement Accéléré
+			d'Applications</p>
+		<div id="text">
+			Le développement d'une application peut-être long quand toute
+			l'infrastructure technique est à faire. <b>KNetThreadsPlatform™</b>
+			accélère la création d'applications en proposant :
+			<ul id="text">
+				<li>de modéliser le fonctionnel par des diagrammes UML à l'aide
+					de <b>KOneEdit™</b>
+				</li>
+				<li>de générer automatiquement le code permettant de compiler
+					la modélisation en une application Java opérationnelle.</li>
+			</ul>
+			Cela permet à l'Architecte de l'application se concentrer sur
+			l'organisation fonctionnelle, et au développeur de se concentrer sur
+			l'implémentation métier, en se déchargeant de la technique bas niveau
+			(gestion des threads, du réseau, etc.).<br /> <br /> <b>KNetThreadsPlatform™</b>,
+			c'est donc aussi :
+			<ul>
+				<li>un framework d'application multithread orienté 'messages'</li>
+				<li>une gestion unifiée des couches réseau via les <b>Connector™</b>
+					: un accès réseau est modélisé par un simpe 'module' dans le
+					diagramme UML
+				</li>
+				<li>un design soigné pour obtenir les meilleurs performances
+					possible.</li>
+			</ul>
+			<br /> Note : Une multitude de <b>Connector™</b> sont déjà
+			disponibles (Http, Jdbc, Jms, Jsmpp, WebServices) et libres
+			(OpenSource) ! Le framework <b>Connector™</b> est extensible à tout
+			type de communication réseau.
+		</div>
+	</div>
+
+	<div id="websoftconcept" class="article box">
+		<p id="title">Web Ready</p>
+		<div id="text">
+			A la différence d'un simple site internet consultatif telle que la
+			vitrine commerciale d'une société ou un blog, un <b>Logiciel Web</b>
+			permet de mettre à disposition sur internet des calculs métier qui
+			nécessitent une logique complexe, ainsi qu'une infrastructure serveur
+			importante.<br />Néanmoins une part importante de cette
+			infrastructure sera commune à beaucoup d'applications, comme la
+			gestion des utilisateurs, de la sécurité... <b>KWebPlatform™</b>
+			implémente tout cela et est un formidable accélérateur de
+			développement.
+		</div>
+	</div>
+
+	<div id="complete" class="article box">
+		<p id="title" ng-if="LANG=='en'">Complementarity</p>
+		<p id="title" ng-if="LANG=='fr'">Complémentarité</p>
+		<div id="text">Il est possible de combiner les 3 technologies
+			pour une solution entièrement innovante pour bâtir une application
+			partagée sur le Web !</div>
+	</div>
+
+	<div></div>
+
+	<div id="portability" class="article box">
+		<p id="title" ng-if="LANG=='en'">Portability, Robustness,
+			Performance</p>
+		<p id="title" ng-if="LANG=='fr'">Portabilité, Robustesse,
+			Performance</p>
+		<div id="text">
+			Toutes ces technologies sont basées sur Java7 et bénéficient donc des
+			avantages suivants :
+			<ul>
+				<li>Portabilité : tous les principaux systèmes sont supportés
+					(Windows/Unix/Linux/Mac)</li>
+				<li>Performance et Robustesse : Java et sa JVM sont des
+					technologies très éprouvées et réputées</li>
+				<li>Java est le langage le plus répandu dans le monde des
+					développeurs.</li>
+			</ul>
+		</div>
+	</div>
+
+	<div id="extensible" class="article box">
+		<p id="title" ng-if="LANG=='en'">License and OpenSource together</p>
+		<p id="title" ng-if="LANG=='fr'">Cohabitation License et
+			OpenSource</p>
+		<div id="text">
+			Si les plateformes sont sous license, les <b>Connector™</b> eux sont
+			du domaine du logiciel libre (OpenSource). Cela apporte de multiples
+			avantages, comme de bénéficier de la communauté de développeurs,
+			avoir accès à des exemples concrets d'implémentation de <b>Connector™</b>,
+			vous être libre de les modifier et de participer à leur
+			développement!
+		</div>
+	</div>
+</div>
+
+
+
+
+<div class="animate-switch-container" ng-switch='slideshow'>
+	<!-- ng-controller="SlideShowController" -->
+	<div ng-switch-when="1" class="animate-switch">
+		<table>
+			<tr>
+				<td>
+					<p id="title">
+						<img id="number" src="./img/numbers-1-icon.png" /><span
+							ng-if="LANG=='en'">Model Driven Engineering</span> <span
+							ng-if="LANG=='fr'">Ingénierie dirigée par les modèles</span>
+					</p>
+					<div class="text" ng-show="LANG=='en'">
+						<ul>
+							<li>Model ideas, data, needs</li>
+							<li>Share with partners and colleagues</li>
+						</ul>
+						<br /> With powerfull <b>KOneEdit™</b> !
+					</div>
+					<div class="text" ng-show="LANG=='fr'">
+						<ul>
+							<li>Pour modéliser les idées, les données, le besoin</li>
+							<li>Clair, Visuel et Précis</li>
+						</ul>
+						<br /> Outil de modélisation <b>KOneEdit™</b> !
+					</div>
+				</td>
+				<td><img
+					src="./img/KOneEdit_KNetThreadsDiagram_screenshot02.png" /></td>
+			</tr>
+		</table>
+	</div>
+	<div ng-switch-when="2" class="animate-switch">
+		<table>
+			<tr>
+				<td>
+					<p id="title">
+						<img id="number" src="./img/numbers-2-icon.png" /><span
+							ng-if="LANG=='en'">Rapid Application Development</span> <span
+							ng-if="LANG=='fr'">Développement Accéléré</span>
+					</p>
+					<div class="text" ng-show="LANG=='en'">
+						<ul>
+							<li>Generate code from the models</li>
+							<li>Code runs on a powerful platform offering plenty of
+								reusable services</li>
+						</ul>
+						<br /> Take benefit of the power of <b>KNetThreadsPlatform™</b> !
+					</div>
+					<div class="text" ng-show="LANG=='fr'">
+						<ul>
+							<li>Le code applicatif est généré automatiquement à partir
+								de sa modélisation fonctionnelle</li>
+							<li>L'application dispose d'une plateforme puissante aux
+								services techniques avancés et réutilisables (gestion réseau,
+								parallélisme)</li>
+						</ul>
+						<br /> Plateforme logicielle <b>KNetThreadsPlatform™</b> !
+					</div>
+				</td>
+				<td><img
+					src="./img/KOneEdit_KNetThreadsDiagram_screenshot01.png" /></td>
+			</tr>
+		</table>
+	</div>
+	<div ng-switch-when="3" class="animate-switch">
+		<table>
+			<tr>
+				<td>
+					<p id="title">
+						<img id="number" src="./img/numbers-3-icon.png" />Web Ready
+					</p>
+					<div class="text" ng-show="LANG=='en'">
+						<ul>
+							<li>Provide real-time services over Internet</li>
+							<li>Manages users, security</li>
+							<li>Nice display, security, performance</li>
+						</ul>
+						<br /> <b>KWebPlatform™</b> enables applications on Internet !
+					</div>
+					<div class="text" ng-show="LANG=='fr'">
+						<ul>
+							<li>Fournir des services temps réél sur Internet</li>
+							<li>Gestion des utilisateur, sécurité</li>
+							<li>Design Web, sécurité, performance</li>
+						</ul>
+						<br /> <b>KWebPlatform™</b> pour une application disponible sur
+						le Web
+					</div>
+				</td>
+				<td><img src="./img/Akigrafsoft_KWebPlatform_screenshot01.png" /></td>
+			</tr>
+		</table>
+
+	</div>
+	<div ng-switch-when="4" class="animate-switch">
+		Combinate all
+		<!-- 	<li>Focus on your business</li> -->
+	</div>
+	<li class="nav-dots"><label class="nav-dot" id="img-dot-1"
+		ng-click="setSlide(1)"></label> <label class="nav-dot" id="img-dot-2"
+		ng-click="setSlide(2)"></label> <label class="nav-dot" id="img-dot-3"
+		ng-click="setSlide(3)"></label></li>
+</div>
+
+
+
+<div class="animate-switch-container" ng-switch="slideshow">
+	<div class="animate-switch" ng-switch-default>
+		<table>
+			<tr>
+				<td>
+					<p id="title">Génétique Des Anes</p>
+					<div class="text" ng-show="LANG=='en'">
+						<ul>
+							<li>A powerful Genetic calculation software</li>
+							<li>Real-time advices about breeding</li>
+							<li>Helps breeders to save donkey breeds in France</li>
+						</ul>
+					</div>
+					<div class="text" ng-show="LANG=='fr'">
+						<ul>
+							<li>Un outil puissant de calcul génétique</li>
+							<li>Conseil en temps réel sur les choix d'accouplement</li>
+							<li>Aide les éleveurs à sauvegarder leurs races d'animaux</li>
+						</ul>
+					</div> <br /> <a href="http://www.genetiquedesanes.fr" target="_blank">www.genetiquedesanes.fr</a>
+				</td>
+				<td><img src="./img/Akigrafsoft_GenetiqueDesAnes_screen.jpeg" /></td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+
+
+
+<div id="contact" class="box" ng-controller="ContactMessageController">
+	<!-- Plus de 13 ans dans l'industrie de l'édition de logiciel m'ont -->
+	<!-- 	conduit à développer des plateformes permettant d'accélérer le -->
+	<!-- 	développement de tout type d'application avec les technologies -->
+	<!-- 	d'aujourd'hui.<br /> -->
+	<p id="title">Contact</p>
+	&emsp;N'hésitez pas à nous contacter via le formulaire suivant si vous
+	avez des questions ! <br /> <span id="signed">K.M.</span> <br /> <br />
+	<form ng-if="!messageSent" name="messageForm"
+		ng-submit="messageForm.$valid && sendMessage(message)">
+		<table>
+			<tr>
+				<td><label for="email">Votre Email</label></td>
+				<td><input name="email" required type="email" id="mail"
+					ng-model="message.email"></td>
+			</tr>
+			<tr>
+				<td><label for="subject">Sujet</label></td>
+				<td><input name="subject" required type="text" id="subject"
+					ng-model="message.subject"></td>
+			</tr>
+			<tr>
+				<td><label for="body">Message</label></td>
+				<td><textarea name="body" id="body" required cols="70"
+						rows="15" ng-model="message.body"></textarea></td>
+			</tr>
+		</table>
+		<div>
+			<button ng-if="!processing"
+				ng-show="messageForm.email.$valid && messageForm.subject.$valid && messageForm.body.$valid"
+				type="submit">Envoyer</button>
+			<div class="inprogress">
+				<img id="processing" ng-show="processing" src="img/processing.gif" />
+			</div>
+		</div>
+	</form>
+	<div ng-if="messageSent==true">Message envoyé, merci !</div>
+
+	<form name="enq" method="post" action="email/"
+		onsubmit="return validation();"></form>
+
+
+	<!-- 		<form name="activationForm" ng-submit="activate(typed_key)"> -->
+	<!-- 			<table> -->
+	<!-- 				<tr> -->
+	<!-- 					<td><label for="key">Entrez la clef d'activation reçue -->
+	<!-- 							par email</label></td> -->
+	<!-- 					<td><input name="key" id="key" required type="text" -->
+	<!-- 						ng-model="typed_key"></td> -->
+	<!-- 					<td></td> -->
+	<!-- 				</tr> -->
+	<!-- 			</table> -->
+	<!-- 			<div class="inprogress"> -->
+	<!-- 				<img ng-show="processing" src="img/processing.gif" /> -->
+	<!-- 			</div> -->
+	<!-- 			<button ng-if="!processing" ng-show="activationForm.key.$valid" -->
+	<!-- 				type="submit">Activer</button> -->
+	<!-- 		</form> -->
+	<!-- 		<i class="msg" -->
+	<!-- 			ng-show="activation_key && activationForm.error.errorReason">{{activationForm.error.errorReason}}</i> -->
+
+</div>
+
+
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+	<!-- Indicators -->
+	<ol class="carousel-indicators">
+		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+		<li data-target="#myCarousel" data-slide-to="1"></li>
+	</ol>
+	<div class="carousel-inner">
+		<div class="item active">
+			<!-- 		<img -->
+			<!-- 				src="data:image/gif;base64,R0lGODlhAQABAIAAAFVVVQAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" -->
+			<!-- 				alt="First slide"> -->
+			<img src="./img/genetiks_logo_blue.png" alt="">
+
+			<!-- 			<div style="position: absolute; left: 15; right: 7; top: 10px;">coucou</div> -->
+
+			<div class="container">
+				<div class="carousel-caption">
+					<h1>
+						<span ng-if="LANG=='en'">Genetik-SDK</span> <span
+							ng-if="LANG=='fr'">Genetik-SDK</span>
+					</h1>
+					<p>
+						<span ng-if="LANG=='en'">Software developement kit with
+							fast in-memory processing algorithms</span> <span ng-if="LANG=='fr'">Moteur
+							de calcul embarquant de puissants algorithmes de calcul génétique
+						</span>
+					</p>
+					<p>
+						<span>
+							<ul ng-if="LANG=='en'">
+								<li>inbreeding/kinship coefficients algorithms</li>
+								<li>most important/efficient ancestors research</li>
+							</ul>
+						</span> <span>
+							<ul ng-if="LANG=='fr'">
+								<li>coefficients de consanguinité/parenté</li>
+								<li>recherche des ancêtres majeurs et efficaces</li>
+								<li>et bien plus encore...</li>
+							</ul>
+						</span>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="item">
+			<img src="" alt="">
+			<div class="container">
+				<div class="carousel-caption">
+					<h1>
+						<a href="http://www.akigrafsoft.com/genetik" target="_blank">Genetik-Web</a>
+						<!-- 						 <span -->
+						<!-- 							ng-if="LANG=='en'"> : Software as a Service (SaaS)</span> <span -->
+						<!-- 							ng-if="LANG=='fr'"> SaaS</span> -->
+					</h1>
+
+					<p>
+						<span ng-if="LANG=='en'"> In order to help breeders with
+							genetics advices to run their business </span> <span ng-if="LANG=='fr'">
+							Conseiller les éléveurs et Organismes de Selection afin de
+							garantir la variablitié génétique dans les races </span>
+					</p>
+					<br />
+					<p>
+						<span> <!-- 					<code>file://</code> -->
+							<ul ng-if="LANG=='en'">
+								<li>Real-time advice service</li>
+								<li>Genetic management tools</li>
+							</ul>
+						</span> <span>
+							<ul ng-if="LANG=='fr'">
+								<li>Services de conseil génétique en temps réel pour les
+									accouplements</li>
+								<li>Outils de calcul pour l'aide à la gestion des
+									population</li>
+							</ul>
+						</span>
+					</p>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<span class="left carousel-control" data-target="#myCarousel"
+		role="button" data-slide="prev"><span
+		class="glyphicon glyphicon-chevron-left"></span></span> <span
+		class="right carousel-control" data-target="#myCarousel" role="button"
+		data-slide="next"><span
+		class="glyphicon glyphicon-chevron-right"></span></span>
+</div>

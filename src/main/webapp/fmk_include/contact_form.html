@@ -1,0 +1,63 @@
+<div ng-controller="ContactMessageController">
+	<!-- Form itself -->
+	<form name="contactForm" class="well" id="contactForm1"
+		ng-if="!messageSent" name="contactForm"
+		ng-submit="contactForm.$valid && sendMessage(message)">
+		<legend>{{LANG=='fr' ? 'Formulaire de contact' : 'Contact
+			form'}}</legend>
+		<div class="control-group">
+			<div class="controls">
+				<input type="text" class="form-control"
+					placeholder="{{LANG=='fr' ? 'Vos nom et prenom' : 'Full Name'}}"
+					name="name" id="name" required
+					data-validation-required-message="Please enter your name"
+					ng-model="message.senderName" />
+				<p class="help-block"></p>
+			</div>
+		</div>
+		<div class="control-group">
+			<div class="controls">
+				<input type="email" class="form-control"
+					placeholder="{{LANG=='fr' ? 'Votre Email' : 'Your Email'}}"
+					name="email" id="email" required
+					data-validation-required-message="Please enter your email"
+					ng-model="message.email" />
+				<p class="help-block"></p>
+			</div>
+		</div>
+
+		<div class="control-group">
+			<div class="controls">
+				<input type="text" class="form-control"
+					placeholder="{{LANG=='fr' ? 'Sujet' : 'Subject'}}" name="subject"
+					id="subject" required
+					data-validation-required-message="Please enter your name"
+					ng-model="message.subject" />
+				<p class="help-block"></p>
+			</div>
+		</div>
+
+		<div class="control-group">
+			<div class="controls">
+				<textarea rows="10" cols="100" class="form-control"
+					placeholder="Message" name="message" id="message" required
+					data-validation-required-message="Please enter your message"
+					minlength="5" data-validation-minlength-message="Min 5 characters"
+					maxlength="999" style="resize: none" ng-model="message.body"></textarea>
+				<p class="help-block"></p>
+			</div>
+		</div>
+		<br />
+		<div id="success"></div>
+		<!-- For success/fail messages -->
+		<button ng-if="!processing"
+			ng-show="contactForm.email.$valid && contactForm.subject.$valid && contactForm.message.$valid"
+			type="submit" class="btn btn-primary pull-right">Send</button>
+		<div class="inprogress">
+			<img id="processing" ng-show="processing"
+				src="fmk_img/processing.gif" />
+		</div>
+		<br />
+	</form>
+	<div ng-if="messageSent==true">Message envoyé, merci !</div>
+</div>

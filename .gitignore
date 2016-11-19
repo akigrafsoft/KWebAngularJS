@@ -1,0 +1,6 @@
+.classpath
+.project
+.settings/
+logs/
+src/main/webapp/js/akigrafsoft_fmk*.js
+target/
