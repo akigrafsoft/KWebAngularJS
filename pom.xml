@@ -1,0 +1,113 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+	http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.akigrafsoft</groupId>
+	<artifactId>KWebAngularJS</artifactId>
+	<packaging>jar</packaging>
+	<version>1.0-SNAPSHOT</version>
+	<name>KWebAngularJS</name>
+	<url>http://maven.apache.org</url>
+
+	<repositories>
+		<repository>
+			<id>java.net</id>
+			<url>http://download.java.net/maven/2</url>
+		</repository>
+	</repositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>bootstrap</artifactId>
+			<version>3.2.0</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>net.alchim31.maven</groupId>
+				<artifactId>yuicompressor-maven-plugin</artifactId>
+				<configuration>
+					<preProcessAggregates>true</preProcessAggregates>
+					<aggregations>
+						<!-- Framework -->
+						<aggregation>
+							<insertNewLine>true</insertNewLine>
+							<output>${project.basedir}/src/main/webapp/js/akigrafsoft_fmk.js</output>
+							<inputDir>${project.basedir}/src/main/js</inputDir>
+							<includes>
+								<include>controllers_fmk.js</include>
+								<include>directives_fmk.js</include>
+								<include>filters_fmk.js</include>
+								<include>services_fmk.js</include>
+
+								<include>*/controllers.js</include>
+								<include>*/directives.js</include>
+								<include>*/services.js</include>
+							</includes>
+						</aggregation>
+					</aggregations>
+					<includes>
+						<include>**/akigrafsoft_fmk.js</include>
+					</includes>
+					<jswarn>true</jswarn>
+					<linebreakpos>200</linebreakpos>
+					<nosuffix>false</nosuffix>
+					<sourceDirectory>${project.basedir}/src/main/webapp</sourceDirectory>
+					<outputDirectory>${project.basedir}/src/main/webapp</outputDirectory>
+					<gzip>false</gzip>
+					<failOnWarning>false</failOnWarning>
+				</configuration>
+				<executions>
+					<execution>
+						<id>compress_js_css</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>compress</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+
+		<pluginManagement>
+			<plugins>
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>
+											net.alchim31.maven
+										</groupId>
+										<artifactId>
+											yuicompressor-maven-plugin
+										</artifactId>
+										<versionRange>
+											[1.4.0,)
+										</versionRange>
+										<goals>
+											<goal>compress</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
+</project>
