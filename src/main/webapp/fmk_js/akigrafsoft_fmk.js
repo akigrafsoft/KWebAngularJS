@@ -347,8 +347,8 @@ fmkControllers.controller('UserAddressController', [
 				$scope.user = $scope.currentUser;
 
 			$scope.address = {
-				"addressLine1" : $scope.user.address.addressLine1,
-				"addressLine2" : $scope.user.address.addressLine2,
+				"line1" : $scope.user.address.line1,
+				"line2" : $scope.user.address.line2,
 				"postalCode" : $scope.user.address.postalCode,
 				"town" : $scope.user.address.town,
 				"province" : $scope.user.address.province,
