@@ -56,7 +56,7 @@
 
 	<servlet>
 		<servlet-name>Auth</servlet-name>
-		<servlet-class>com.akigrafsoft.kwebplatform.servlets.Authentication</servlet-class>
+		<servlet-class>com.akigrafsoft.kwebplatform.servlets.AuthenticationServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Auth</servlet-name>
