@@ -346,14 +346,27 @@ fmkControllers.controller('UserAddressController', [
 			if (!$scope.user)
 				$scope.user = $scope.currentUser;
 
-			$scope.address = {
-				"line1" : $scope.user.address.line1,
-				"line2" : $scope.user.address.line2,
-				"postalCode" : $scope.user.address.postalCode,
-				"town" : $scope.user.address.town,
-				"province" : $scope.user.address.province,
-				"state" : $scope.user.address.state
-			};
+			if ($scope.user.address !== null)
+			{
+				$scope.address = {
+					"line1" : $scope.user.address.line1,
+					"line2" : $scope.user.address.line2,
+					"postalCode" : $scope.user.address.postalCode,
+					"town" : $scope.user.address.town,
+					"province" : $scope.user.address.province,
+					"state" : $scope.user.address.state
+				};
+			}
+			else
+				{
+				$scope.address = {
+					"line1" : "",
+					"line2" : "",
+					"postalCode" : "",
+					"town" : "",
+					"province" : "",
+					"state" : ""
+				};}
 
 			$scope.setAddress = function(address) {
 				$scope.processing = true;
@@ -1689,7 +1702,7 @@ fmkDirectives
 						listTitle : '@',
 						listTitleAdmin : '=',
 						listFactory : '@',
-						listFactoryParams : '@',
+						listFactoryParams : '=',
 						listName : '@',
 						listId : '@',
 						listUri : '@',
@@ -2025,6 +2038,8 @@ fmkDirectives
 								var doCreateList = function() {
 									console
 											.log("kwpServerPagedList.doCreateList("
+													+ $scope.listFactory
+													+ "'"
 													+ $scope.listId
 													+ ","
 													+ JSON
@@ -2148,12 +2163,13 @@ fmkServices.factory('PagedListsService', [
 		'$http',
 		function($http) {
 			return {
-				createList : function(uri, listFactory, listFactoryParams,
+				createList : function(uri, factory, factoryParams,
 						listId, listName, searchCriteriasBase, searchCriterias,
 						sortCriteria, reverse, fromIndex, pageSize) {
+					console.log("PagedListService::createList("+factory+")");
 					var req = {
-						"listFactory" : listFactory,
-						"listFactoryParams" : listFactoryParams,
+						"factory" : factory,
+						"factoryParams" : factoryParams,
 						"listName" : listName,
 						"searchCriteriasBase" : searchCriteriasBase,
 						"searchCriterias" : searchCriterias,

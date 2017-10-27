@@ -2,12 +2,13 @@ fmkServices.factory('PagedListsService', [
 		'$http',
 		function($http) {
 			return {
-				createList : function(uri, listFactory, listFactoryParams,
+				createList : function(uri, factory, factoryParams,
 						listId, listName, searchCriteriasBase, searchCriterias,
 						sortCriteria, reverse, fromIndex, pageSize) {
+					console.log("PagedListService::createList("+factory+")");
 					var req = {
-						"listFactory" : listFactory,
-						"listFactoryParams" : listFactoryParams,
+						"factory" : factory,
+						"factoryParams" : factoryParams,
 						"listName" : listName,
 						"searchCriteriasBase" : searchCriteriasBase,
 						"searchCriterias" : searchCriterias,

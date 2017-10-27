@@ -10,7 +10,7 @@ fmkDirectives
 						listTitle : '@',
 						listTitleAdmin : '=',
 						listFactory : '@',
-						listFactoryParams : '@',
+						listFactoryParams : '=',
 						listName : '@',
 						listId : '@',
 						listUri : '@',
@@ -346,6 +346,8 @@ fmkDirectives
 								var doCreateList = function() {
 									console
 											.log("kwpServerPagedList.doCreateList("
+													+ $scope.listFactory
+													+ "'"
 													+ $scope.listId
 													+ ","
 													+ JSON

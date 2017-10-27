@@ -342,18 +342,37 @@ fmkControllers.controller('UserAddressController', [
 			// uses 'user' as input valus that should be filled
 			// with ng-init="user=currentUser"
 			// TODO : this is a problem when refreshing the user profile page...
-
+			
+			$scope.editing = false;
+			$scope.processing = false;
+			
 			if (!$scope.user)
 				$scope.user = $scope.currentUser;
 
-			$scope.address = {
-				"line1" : $scope.user.address.line1,
-				"line2" : $scope.user.address.line2,
-				"postalCode" : $scope.user.address.postalCode,
-				"town" : $scope.user.address.town,
-				"province" : $scope.user.address.province,
-				"state" : $scope.user.address.state
-			};
+			if ($scope.user.address !== null)
+			{
+				
+				$scope.address = {
+					"line1" : $scope.user.address.line1,
+					"line2" : $scope.user.address.line2,
+					"postalCode" : $scope.user.address.postalCode,
+					"town" : $scope.user.address.town,
+					"province" : $scope.user.address.province,
+					"state" : $scope.user.address.state
+				};
+			}
+			else
+			{
+				console.log("setting empty address");
+				$scope.address = {
+					"line1" : "",
+					"line2" : "",
+					"postalCode" : "",
+					"town" : "",
+					"province" : "",
+					"state" : ""
+				};
+			}
 
 			$scope.setAddress = function(address) {
 				$scope.processing = true;

@@ -35,7 +35,7 @@
 						<!-- Framework -->
 						<aggregation>
 							<insertNewLine>true</insertNewLine>
-							<output>${project.basedir}/src/main/webapp/js/akigrafsoft_fmk.js</output>
+							<output>${project.basedir}/src/main/webapp/fmk_js/akigrafsoft_fmk.js</output>
 							<inputDir>${project.basedir}/src/main/js</inputDir>
 							<includes>
 								<include>controllers_fmk.js</include>
