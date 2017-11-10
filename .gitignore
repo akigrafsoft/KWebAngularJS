@@ -2,5 +2,5 @@
 .project
 .settings/
 logs/
-src/main/webapp/js/akigrafsoft_fmk*.js
+src/main/webapp/fmk_js/akigrafsoft_fmk*.js
 target/
